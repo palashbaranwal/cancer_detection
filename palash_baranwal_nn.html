@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Final</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>palash_baranwal_nn</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -15327,50 +15327,10 @@ Epoch 20/20
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Observations-from-second-model---Model-2">Observations from second model - Model 2<a class="anchor-link" href="#Observations-from-second-model---Model-2">&#182;</a></h3><p><p style='color:purple'> 1. We se that the training and validation accuracy is in sync with each other.  
-</br> 2. However the overall training and validation accuracy has dropped </p>&lt;/br&gt;&lt;/br&gt;
-This might be because of</p>
-<p>Excessive Data Augmentation:</p>
-<p>Reason: If you've applied too many aggressive data augmentation techniques, it's possible that you're introducing too much noise and distortion in the training data, making it harder for the model to learn the underlying patterns.
-Solution: Try reducing the intensity or the number of data augmentation techniques applied. Start with a moderate level of augmentation and gradually increase it if needed.
-Incompatible Data Augmentation Techniques:</p>
-<p>Reason: The data augmentation techniques you've chosen may not be compatible with the type of images in your dataset or the task you're trying to solve.
-Solution: Experiment with different data augmentation techniques and evaluate their impact on the training and validation performance. Consult literature or tutorials specific to your problem domain to identify the most suitable augmentation methods.
-Insufficient Model Capacity:</p>
-<p>Reason: The model architecture you're using may not be complex enough to learn the relevant features from the augmented data, leading to a decrease in performance.
-Solution: Consider increasing the complexity of your model by adding more layers, increasing the number of filters, or adjusting the hyperparameters (e.g., learning rate, batch size) to allow the model to better fit the training data.
-Overfitting to the Augmented Data:</p>
-<p>Reason: Even with data augmentation, the model may still be overfitting to the training data, including the augmented samples.
-Solution: Implement additional regularization techniques, such as L1/L2 regularization, dropout, or early stopping, to prevent the model from overfitting to the training data.
-Mismatch between Training and Validation Data</p>
-
+<h3 id="Observations-from-second-model---Model-2">Observations from second model - Model 2<a class="anchor-link" href="#Observations-from-second-model---Model-2">&#182;</a></h3><p style='color:purple'> 1. We se that the training and validation accuracy is in sync with each other.  
+</br> 2. However the overall training and validation accuracy has dropped </br>
+This might be because of a) Excessive Data Augmentation b)Mismatch between Training and Validation Data (or Class Imbalance)</p>
 </div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Finding from Second Model</strong></p>
-<ul>
-<li><p>There is no improvement in accuracy but we can definitely see the overfitting problem has solved due to data augmentation</p>
-</li>
-<li><p>We can increase the epochs to increase the accuracy so it's too early for judgement</p>
-</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15548,6 +15508,11 @@ Name: Label, dtype: int64</pre>
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Step-14---Visualizing-the-distribution">Step 14 - Visualizing the distribution<a class="anchor-link" href="#Step-14---Visualizing-the-distribution">&#182;</a></h3>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15628,6 +15593,11 @@ Name: Label, dtype: int64</pre>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p style='color:purple'> Answer-1 :- "seborrheic keratosis" has least number of samples</br>
 Answer-2:- "pigmented benign keratosis" and "melanoma" dominate the data in terms proportionate number of samples.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Step-15---Instantiating-Augmentor">Step 15 - Instantiating Augmentor<a class="anchor-link" href="#Step-15---Instantiating-Augmentor">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -16411,6 +16381,11 @@ Using 1350 files for validation.
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Step-16---Creating-a-model---Model-3">Step 16 - Creating a model - Model 3<a class="anchor-link" href="#Step-16---Creating-a-model---Model-3">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="Todo:-Create-your-model-(make-sure-to-include-normalization)"><strong>Todo:</strong> Create your model (make sure to include normalization)<a class="anchor-link" href="#Todo:-Create-your-model-(make-sure-to-include-normalization)">&#182;</a></h4>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16720,6 +16695,13 @@ Epoch 20/20
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="Todo:--Analyze-your-results-here.-Did-you-get-rid-of-underfitting/overfitting?-Did-class-rebalance-help?"><strong>Todo:</strong>  Analyze your results here. Did you get rid of underfitting/overfitting? Did class rebalance help?<a class="anchor-link" href="#Todo:--Analyze-your-results-here.-Did-you-get-rid-of-underfitting/overfitting?-Did-class-rebalance-help?">&#182;</a></h4>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Step-17---Observations-from-second-model---Model-3">Step 17 - Observations from second model - Model 3<a class="anchor-link" href="#Step-17---Observations-from-second-model---Model-3">&#182;</a></h3><p style='color:purple'> 1. We see that the training and validation accuracy is in sync with each other.  
+</br> 2. Plus overall accuracy has also increased </br>
+Class rebalance helped tackling overfitting and improved accuracy as well.</p>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
